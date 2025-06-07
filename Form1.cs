@@ -19,12 +19,9 @@ namespace WersjagraficznaTychZadan
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            var wybor = comboBox1.SelectedItem as string;
-            if (wybor == null) return;
 
             labelWagiPoczatkowe.Text = "Wagi poczatkowe";
-            labelWagiKoncowe.Text = " Wagi koncowe";
-            btnTestuj.Visible = true;
+            labelWagiKoncowe.Text = "Wagi koncowe";
             WYniki12.Text = "";
             WszystkieWyniki.Text = "";
         }
@@ -68,7 +65,7 @@ namespace WersjagraficznaTychZadan
                     new double[] { 1, 0 },
                     new double[] { 1, 1 }
            };
-            double [][] WejsciaSieci2 = WejsciaSieci.Select(w => w.ToArray()).ToArray(); ;//kopia dla wynikow aby wyniki nie wyswitlaly sie pomieszane
+            double [][] WejsciaSieci2 = WejsciaSieci.Select(w => w.ToArray()).ToArray(); ;//kopia dla wynikow aby wyniki nie wyswitlaly sie pomieszane podaczas wyświetlania
             double[] WyjsciaOczekiwane = { 0, 1, 1, 0 };
             WszystkieWynikiPrzed(WejsciaSieci2, struktura, wagi);
             GenerujWagiPoczatkowe(wagi);
@@ -314,7 +311,7 @@ namespace WersjagraficznaTychZadan
                     sbPoczatkowe.Append($"Warstwa {i}, Neuron {j}: ");
                     for (int k = 0; k < wagi[i][j].Length; k++)
                     {
-                        sbPoczatkowe.Append($"{wagi[i][j][k]:F4} ");
+                        sbPoczatkowe.Append($" {wagi[i][j][k]:F4}  ");
                     }
                     sbPoczatkowe.AppendLine();
                 }
@@ -332,7 +329,7 @@ namespace WersjagraficznaTychZadan
                     sbKoncowe.Append($"Warstwa {i}, Neuron {j}: ");
                     for (int k = 0; k < wagi[i][j].Length; k++)
                     {
-                        sbKoncowe.Append($"{wagi[i][j][k]:F4} ");
+                        sbKoncowe.Append($" {wagi[i][j][k]:F4}  ");
                     }
                     sbKoncowe.AppendLine();
                 }
